@@ -1,6 +1,5 @@
-# My answer to GPU-based coding problem from various website
+# [LeetGPU](https://leetgpu.com/challenges)
 
-## [LeetGPU](https://leetgpu.com/challenges)
 1. [Vector Addition](https://leetgpu.com/challenges/vector-addition) - adds 2 vectors `vecAdd.cu`
 2. [Matrix Multiplication](https://leetgpu.com/challenges/matrix-multiplication) - naive matrix multiplication `matMul.cu`
 3. [Matrix Transpose](https://leetgpu.com/challenges/matrix-transpose) - transpose the matrix A[i][j] -> B[j][i]       `matTrans.cu`
@@ -18,6 +17,3 @@ this translate to only one instruction, no branching)
 11. [Count 2D Array Element](https://leetgpu.com/challenges/count-2d-array-element) - count the number of element in a matrix/2d arrayarray
 11. [Sigmoid Linear Unit](https://leetgpu.com/challenges/sigmoid-linear-unit) - implement SiLU activation function to a 1D vector
 12. [Swish-Gated Linear Unit](https://leetgpu.com/challenges/swish-gated-linear-unit) - implement SWiGLU activation function to a 1D vector
-
-## [Tensara](https://leetgpu.com/challenges)
-
