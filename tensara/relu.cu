@@ -30,8 +30,7 @@ __global__ void relu_kernel(const float* input, float* output, size_t n, size_t 
 
     if (x < m && y < n) {
         int idx = y * m + x;
-        float val = input[idx];
-        output[idx] = (val > 0.0f) ? val : 0.0f;
+        float val = fmax(input[idx], 0);
     }
 }
 
