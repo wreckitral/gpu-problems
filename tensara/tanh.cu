@@ -33,19 +33,18 @@ __global__ void kernel(const float* input, float* output, size_t n, size_t m) {
 }
 
 __global__ void kernel_faster(const float* input, float* output, size_t n, size_t m) {
-    int x = blockDim.x * blockIdx.x + threadIdx.x;
-    int y = blockDim.y * blockIdx.y + threadIdx.y;
+    size_t x = blockDim.x * blockIdx.x + threadIdx.x;
+    size_t total = n *m;
 
-    if(y < m && x < n) {
-        output[y * n + x] = tanhf(input[y * n + x]);
+    if(x < total) {
+        output[x] = tanhf(input[x]);
     }
 }
 
 // Note: input, output are all device pointers to float16 arrays
 extern "C" void solution(const float* input, float* output, size_t n, size_t m) {
-    dim3 blockDim(16, 16);
-    dim3 gridDim((n + blockDim.x - 1) / blockDim.x,
-                 (m + blockDim.y - 1) / blockDim.y);
+    dim3 blockDim(256);
+    dim3 gridDim((n * m + 255) / 256);
     kernel<<<gridDim, blockDim>>>(input, output, n, m);
     cudaDeviceSynchronize();
 }
